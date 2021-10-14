@@ -1,23 +1,20 @@
-# дни, часы, минуты - в секундах
-minute_in_sec = 60
-hour_in_sec = minute_in_sec * 60
-day_in_sec = hour_in_sec * 24
-# условие завершения цикла - ввод нуля
-condition = True
-while condition:
-    duration = int(input("Введите промежуток времени в секундах (для выхода нажмите '0'): "))
-    day = duration // day_in_sec
-    hour = duration % day_in_sec // hour_in_sec
-    minute = duration % day_in_sec % hour_in_sec // minute_in_sec
-    second = duration % day_in_sec % hour_in_sec % minute_in_sec
-    if duration == 0:
-        condition = False
-    elif duration >= day_in_sec:
-        print(f'{day} дн {hour} час {minute} мин {second} сек')
-    elif duration >= hour_in_sec:
-        print(f'{hour} час {minute} мин {second} сек')
-    elif duration >= minute_in_sec:
-        print(f'{minute} мин {second} сек')
-    else:
-        print(f'{second} сек')
+def seconds_convertor(sec):
+    day = sec // 86400
+    hour = (sec % 86400) // 3600
+    minute = (sec % 3600) // 60
+    second = (sec % 60)
+    return [day, hour, minute, second]
+
+while True:
+    try:
+        time_digit = seconds_convertor(int(input('Введите количество секунд (q - выход): ')))
+        time_text = ['дн', 'час', 'мин', 'сек']
+        while time_digit[0] == 0:
+            time_digit.pop(0) and time_text.pop(0)
+        for i in range(len(time_digit)):
+            print(time_digit[i], time_text[i], end=' ')
+        print()
+    except:
+        print('Выход')
+        break
 
