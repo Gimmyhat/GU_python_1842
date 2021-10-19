@@ -1,0 +1,16 @@
+from Nikitchenko_A_lesson_3_dz_3 import thesaurus
+
+
+def thesaurus_adv(*names):
+    list_of_names = list(names)
+    keys_last_name = sorted(tuple(set(map(lambda x: x[x.find(' ')+1], list_of_names))))
+    values = []
+    my_dict = {}
+    for item in keys_last_name:
+        values.append(list(filter(lambda x: x[x.find(' ')+1] == item, list_of_names)))
+        for item2 in values:
+            my_dict[item] = thesaurus(*item2)
+    return my_dict
+
+
+print(thesaurus_adv("Иван Сергеев", "Инна Серова", "Петр Алексеев", "Илья Иванов", "Анна Савельева"))
