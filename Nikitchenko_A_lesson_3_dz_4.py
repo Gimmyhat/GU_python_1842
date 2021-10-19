@@ -1,7 +1,7 @@
-from Nikitchenko_A_lesson_3_dz_3 import thesaurus
+from Nikitchenko_A_lesson_3_dz_3 import thesaurus  # сосздание словаря по именам
 
 
-def thesaurus_adv(*names):
+def thesaurus_adv(*names):  # создание вложенного словаря с ключами из первых букв фамилии
     list_of_names = list(names)
     keys_last_name = sorted(tuple(set(map(lambda x: x[x.find(' ')+1], list_of_names))))
     values = []
