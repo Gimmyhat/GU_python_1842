@@ -9,4 +9,12 @@ def thesaurus(*names):
     return my_dict
 
 
-print(thesaurus("Иван", "Мария", "Петр", "Илья"))
+# main function
+def main():
+    print(thesaurus("Иван", "Мария", "Петр", "Илья"))
+
+
+if __name__ == '__main__':
+    main()
+
+

@@ -11,6 +11,10 @@ def thesaurus_adv(*names):  # создание вложенного словар
         for item2 in values:
             my_dict[item] = thesaurus(*item2)
     return my_dict
-temp_dict = thesaurus_adv("Иван Сергеев", "Инна Серова", "Петр Алексеев", "Илья Иванов", "Анна Савельева", "Игорь Сергеев", "Алексей Сабутин")
 
-print(temp_dict)
+# main function
+def main():
+    print(thesaurus_adv("Иван Сергеев", "Инна Серова", "Петр Алексеев", "Илья Иванов", "Анна Савельева", "Игорь Сергеев", "Алексей Сабутин"))
+
+if __name__ == '__main__':
+    main()
