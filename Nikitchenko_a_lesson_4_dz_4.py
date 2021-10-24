@@ -8,8 +8,9 @@ def currency_rates(currency):
     currency = currency.upper()
     url = "http://www.cbr.ru/scripts/XML_daily.asp"
     response = requests.get(url).text
-    start = response.find("Date")
-    date = DT.datetime.strptime(response[start+6:start+16], '%d.%m.%Y').date()
+    start = response.find ("Date")
+    end = response.find ("name")
+    date = ''.join (x for x in response[start:end] if x.isdigit ())  # удаление лишних символов из даты
     if response.find(currency) <= 0:
         return None
     else:
