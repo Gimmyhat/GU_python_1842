@@ -26,10 +26,10 @@ if __name__ == '__main__':
         f.writelines(generate_hobby(3))
 
     with open('users.csv', 'r', encoding='utf-8') as f:
-        l_users = [line.strip().replace(',', ' ') for line in f.readlines()]
+        l_users = [line.strip().replace(',', ' ') for line in f]
 
     with open('hobby.csv', 'r', encoding='utf-8') as f:
-        l_hobby = [line.strip() for line in f.readlines()]
+        l_hobby = [line.strip() for line in f]
 
     diff = len(l_users) - len(l_hobby)
     if diff >= 0:
