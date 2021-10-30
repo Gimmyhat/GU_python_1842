@@ -26,7 +26,7 @@ def read_write(file, user_list=None, oper='r'):
 
 if __name__ == '__main__':
     n_users = 7
-    n_hobby = 5
+    n_hobby = 6
 
     try:
 
