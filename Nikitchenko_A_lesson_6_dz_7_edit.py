@@ -20,6 +20,6 @@ def row_count(file):
 if __name__ == '__main__':
     name_file = 'bakery.csv'
     if int(sys.argv[1]) > row_count(name_file):
-        'Введенный номер записи не существует!'
+        print('Введенный номер записи не существует!')
     else:
         replace_in_file(name_file, sys.argv[1], sys.argv[2])
