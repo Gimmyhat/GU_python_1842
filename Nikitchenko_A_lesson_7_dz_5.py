@@ -15,7 +15,7 @@ root_dir = Path.cwd() / 'my_project'
 files = [[f.suffix, f.stat().st_size] for f in root_dir.rglob('*.*')]
 for file in files:
     start = -1
-    for key, value in sort_size.items():
+    for key in sort_size.keys():
         if start < file[1] <= key:
             sort_size[key][0] += 1  # подсчет файлов для каждой категории
             sort_size[key][1].append(file[0])  # список расширений файлов, попавших в категорию
