@@ -1,5 +1,6 @@
 from pathlib import Path
 from pprint import pprint
+import json
 
 sort_size = {
     100: [0, []],
@@ -25,3 +26,6 @@ for key in sort_size.keys():
     sort_size[key] = tuple(sort_size[key])  # преобразую список в кортеж
 
 pprint(sort_size)
+
+with open(f'{Path.cwd().parts[-1]}_summary.json', 'w') as f:
+    json.dump(sort_size, f)
