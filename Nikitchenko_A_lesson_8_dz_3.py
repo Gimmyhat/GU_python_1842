@@ -14,10 +14,10 @@ def type_logger(func):
 
 
 @type_logger
-def calc_cube(x, y):
-    return x ** y
+def calc_cube(x):
+    return x ** 3
 
 
 if __name__ == '__main__':
-    a = calc_cube(5.2, 7)
+    a = calc_cube(5)
     print(a)
