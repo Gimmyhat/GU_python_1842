@@ -3,10 +3,7 @@ class Matrix:
         self.array = array
 
     def __str__(self):
-        str_array = ''
-        for row in self.array:
-            str_array += ' '.join(str(i) for i in row) + '\n'
-        return str_array
+        return '\n'.join(' '.join(str(i) for i in row) for row in self.array) + '\n'
 
     def __add__(self, other):
         try:
