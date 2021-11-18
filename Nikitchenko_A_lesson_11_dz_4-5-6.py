@@ -5,7 +5,8 @@ class ErrorFind(Exception):
 
 class ErrorDept(Exception):
     """ Ошибка в названии отдела """
-    pass
+    def __str__(self):
+        return f'Такой отдел не существует!'
 
 
 class Equipment:
@@ -52,7 +53,7 @@ class Warehouse:
         try:
             # проверка на корректный ввод названия отдела
             if dept not in Warehouse.__main_db:
-                raise ErrorDept(dept)
+                raise ErrorDept
             # создаем ключ в базе для выбранного отдела в зависимости от типа техники
             key = f'{unit.__class__.__name__.lower()}s'
             Warehouse.__main_db.setdefault(dept).setdefault(key)
@@ -82,8 +83,8 @@ class Warehouse:
             else:
                 # если в выбраном отделе указанный девайс отсутствует, то ошибка
                 raise ErrorFind
-        except ErrorDept:
-            print(f'Такой отдел не существует!')
+        except ErrorDept as ex:
+            print(ex)
         except ErrorFind:
             print(f'"{unit}" в отделе "{dept_out}" не найден!')
 
